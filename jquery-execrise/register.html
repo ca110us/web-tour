@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/register.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="sytles/sytle.css" />
+</head>
+<body>
+    <div class="edb-wrap">
+        <header class="edb-header">
+            <a href="" class="navbar-brand">bootcamp - 用户管理系统</a>
+            <ul class="navbar-user">
+                <li><a href="register.html" class="navbar-user-register">注册</a></li>
+                <li><a href="login.html" class="navbar-user-login">登录</a></li>
+            </ul>
+        </header>
+        <div class="register-section">
+            <div class="login-tab">
+                <a href="register.html" class="active">注册</a>
+                <a href="login.html">登录</a>
+            </div>
+            <div class="login-main">
+                <form action="" id="registerForm">
+                    <div class="login-item first">
+                        <label class="clear">用户名</label>
+                        <input type="text" name="username" class="">
+                    </div>
+                    <div class="login-item">
+                            <label class="clear">密码</label>
+                            <input type="password" name="password" id="password" class="">
+                    </div>
+                    <div class="login-item">
+                            <label class="clear">确认密码</label>
+                            <input type="password" name="passwordAgain" class="">
+                    </div>
+                    <div class="login-item">
+                        <label class="clear">真实姓名</label>
+                        <input type="text" name="realname" class="">
+                    </div>
+                    <div class="login-item">
+                            <label class="clear">电子邮箱</label>
+                            <input type="text" name="mail" class="">
+                    </div>
+                    <div class="login-item">
+                            <label class="clear">年龄</label>
+                            <input type="text" name="age" class="">
+                    </div>
+                    <div class="login-item">
+                            <label class="clear">职业</label>
+                            <input type="radio" name="work" value="0" checked="true"/>学生
+                            <input type="radio" name="work" value="1"/>上班族
+                    </div>
+                    <div class="login-item orgInput">
+                            <label class="clear" id="orgName">学校</label>
+                            <input type="text" id="orgNameInput" name="schoolName" class="">
+                    </div>
+                    <div class="login-item">
+                        <label class="clear">兴趣爱好</label>
+                        <input type="checkbox" name="hobby" value="game"/>游戏
+                        <input type="checkbox" name="hobby" value="football"/>足球
+                        <input type="checkbox" name="hobby" value="basketball"/>篮球
+                        <input type="checkbox" name="hobby" value="sing"/>唱歌
+                        <input type="checkbox" name="hobby" value="dance"/>舞蹈
+                        </br>
+                        <input type="checkbox" name="hobby" value="music"/>听音乐
+                        <input type="checkbox" name="hobby" value="novel"/>看小说
+                        <input type="checkbox" name="hobby" value="movie"/>看电影
+                        <input type="checkbox" name="hobby" value="bodybuilt"/>撸铁
+                        <input type="checkbox" name="hobby" value="run"/>跑步
+                    </div>
+                    <div class="login-item">
+                            <button type="submit" class="register.html">注册</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

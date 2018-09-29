@@ -1,0 +1,107 @@
+/* General setup */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Timeless';
+    font-size:10px;
+  }
+
+  @font-face{
+    font-family: 'SlabTallX';
+    src:url('../font/SlabTallX.ttf');
+  }
+
+  @font-face{
+    font-family: 'Timeless';
+    src:url('../font/Timeless.ttf');
+  }
+  
+  body {
+    margin: 0 auto;
+    min-width: 100em;
+    max-width: 140em;
+    line-height: 2em;
+    letter-spacing: 0.01em;
+    word-spacing: 0.1em;
+  }
+
+  h1 {
+    text-align: center;
+    letter-spacing:0.3em;
+    font-family: 'SlabTallX';
+    font-size: 3em;
+  }
+  
+  /* Layout */
+  
+  section {
+    float: left;
+    width: 50%;
+  }
+
+  section h2 + p{
+    text-indent: 2em;
+  }
+  
+  aside {
+    float: left;
+    width: 30%;
+  }
+  
+  h2  {
+    font-family: 'SlabTallX';
+    font-size: 2em;
+  }
+
+  nav {
+    float: left;
+    width: 20%;
+  }
+  
+  footer {
+    clear: both;
+  }
+  
+  header, section, aside, nav, footer {
+    padding: 2em;
+  }
+  
+  /* header and footer */
+  
+  a[href*="http"] {
+    padding-right: 1em;
+    background: url(../images/external-link-52.png) no-repeat 100% 0;
+    background-size: 1em 1em;
+  }
+
+
+  header, footer {
+    border-top: 0.5em solid #a66;
+    border-bottom: 0.5em solid #a66;
+  }
+  a:link{
+    color: #a66;
+  }
+  a:visited{
+    color: #a66;
+  }
+  a:hover{
+    color: #a66;
+    text-decoration:none;
+  }
+  a:focus{
+   color:#a66;
+   text-decoration:none;
+   outline: none;
+  }
+  nav li {
+    list-style-type:none;
+    border:  1px solid #a66;
+    text-align: center;
+    margin:2em;
+    padding:1.2em;
+  }
+  nav a {
+    text-decoration:none;
+  }
+  /* WRITE YOUR CODE BELOW HERE */

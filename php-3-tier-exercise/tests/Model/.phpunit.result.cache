@@ -1,0 +1,1 @@
+C:30:"PHPUnit\Runner\TestResultCache":336:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:9:{s:11:"testAddUser";d:0.301;s:21:"testGetUserByUsername";d:0.371;s:17:"testGetUserByMail";d:0.256;s:19:"testGetUserByUserId";d:0.256;s:21:"testGetPagesNumByWork";d:0.267;s:11:"testDelUser";d:0.337;s:14:"testUpdateUser";d:0.267;s:19:"testFindUsersByWork";d:0.292;s:15:"testIsUserExist";d:0.244;}}}

@@ -1,0 +1,78 @@
+{% extends "base/modal-base.html.twig" %}
+{% import "base/form-hobby-checkbox-base.html.twig" as hobbyCheckbox %}
+{% block modalName %}
+<div class="modal fade" id="EditUserModal" tabindex="-1" role="dialog" aria-labelledby="EditUserModalLabel" aria-hidden="true">
+{% endblock %}    
+{% block modalTitle %}
+<h5 class="modal-title" id="exampleModalLabel">编辑用户</h5>
+{% endblock %}
+{% block modalForm %}  
+<div class="modal-body">
+    <div class="d-flex justify-content-center align-items-center">
+        <form id="editUserForm" class="w-75" style="font-size:0.8rem;">
+            <div class="form-group">
+                <label>用户名</label>
+                <input id="username" type="text" name="username" class="form-control" disabled="disabled" value="{{modalUserInfo['username']}}">
+            </div>
+            <div class="form-group" {% if modalUserInfo[ 'id']==currentUserId %}{{ 'style="display:none;"'}}{% endif %}>
+                <label>角色</label></br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="eRadio11" type="radio" name="role" value="admin" {% if modalUserInfo[ 'role']=='admin' %}{{ 'checked'}}{% endif %}>
+                    <label class="form-check-label" for="eRadio11">管理员</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="eRadio12" type="radio" name="role" value="member" {% if modalUserInfo[ 'role']=='member' %}{{ 'checked'}}{% endif %}>
+                    <label class="form-check-label" for="eRadio12">成员</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>真实姓名</label>
+                <input id="realname" type="text" name="realname" class="form-control" value="{{modalUserInfo['realname']}}">
+            </div>
+            <div class="form-group">
+                <label>邮箱</label>
+                <input id="mailInput" type="email" name="mail" class="form-control" value="{{modalUserInfo['mail']}}">
+                <label id="mailError" class="error" style="display:none;"></label>
+            </div>
+            <div class="form-group">
+                <label>年龄</label>
+                <input id="age" type="text" name="age" class="form-control" value="{{modalUserInfo['age']}}">
+            </div>
+            <div class="form-group">
+                <label>职业</label></br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="inline11" type="radio" name="work2" value="0" {{ modalUserInfo[ 'work']==0 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="inline11">学生</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="inline12" type="radio" name="work2" value="1" {{ modalUserInfo[ 'work']==1 ? 'checked' : '' }}>
+                    <label class="form-check-label" for="inline12">上班族</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="orgName2">{{ modalUserInfo[ 'work']==0 ? '学校' : '公司' }}</label>
+                <input type="text" id="orgNameInput2" name="{{ modalUserInfo[ 'work']==0 ? 'schoolName' : 'companyName' }}" class="form-control" value="{{modalUserInfo['org']}}">
+            </div>
+            <div class="form-group">
+                <label>兴趣爱好</label></br>
+                    {{ hobbyCheckbox.editHobbyCheckbox('gamecheckbox1','game','游戏',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('footballcheckbox1','football','足球',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('basketballcheckbox1','basketball','篮球',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('singcheckbox1','sing','唱歌',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('dancecheckbox1','dance','舞蹈',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('musiccheckbox1','music','听音乐',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('novelcheckbox1','novel','看小说',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('moviecheckbox1','movie','看电影',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('bodybuiltcheckbox1','bodybuilt','撸铁',modalUserInfo['hobby']) }}
+                    {{ hobbyCheckbox.editHobbyCheckbox('runcheckbox1','run','跑步',modalUserInfo['hobby']) }}
+                </br>
+                <label id="work-error" class="error" for="hobby[]"></label>
+            </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+    <button id="edit-submit-btn" data-userid="{{modalUserInfo['id']}}" type="submit" class="btn btn-primary">修改</button>
+</div>
+</form>
+{% endblock %}

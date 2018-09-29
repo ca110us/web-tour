@@ -1,0 +1,13 @@
+{% macro hobbyCheckbox(id, value, text) %}
+<div class="form-check form-check-inline">
+    <input class="form-check-input" id="{{ id }}" type="checkbox" name="hobby[]" value="{{ value }}">
+    <label class="form-check-label" for="{{ id }}">{{ text }}</label>
+</div>
+{% endmacro %}
+
+{% macro editHobbyCheckbox(id, value, text , hobbys) %}
+<div class="form-check form-check-inline">
+    <input class="form-check-input" id="{{ id }}" type="checkbox" name="hobby[]" value="{{ value }}" {% if value in hobbys %}{{ 'checked'}}{% endif %}>
+    <label class="form-check-label" for="{{ id }}">{{ text }}</label>
+</div>
+{% endmacro %}

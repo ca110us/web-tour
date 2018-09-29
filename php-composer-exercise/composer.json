@@ -1,0 +1,14 @@
+{
+    "name": "codeages/bootcamp",
+    "type": "project",
+    "require": {
+        "monolog/monolog": "^1.23"
+    },
+    "authors": [{
+        "name": "zhangboyi",
+        "email": "zhangboyi@edusoho.com"
+    }],
+    "autoload": {
+        "psr-4": { "App\\": "src" }
+    }
+}

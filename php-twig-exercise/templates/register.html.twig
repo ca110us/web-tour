@@ -1,0 +1,127 @@
+{% extends "base/page-base.html.twig" %}
+{% block pageTitle %}注册{% endblock %}
+{% block pageHeader %}
+<div class="col-6">
+    <a href="" class="navbar-brand">bootcamp</a>
+</div>
+<div class="col-6">
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" href="index.php?controller=register&action=index">注册</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pr-0" href="index.php?controller=auth&action=login">登录</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+{% block pageBody %}
+<div class="container-fluid content">
+    <div class="row justify-content-center align-items-center no-gutters">
+        <div class="login-area col-4 mb-5">
+            <div class="login-tab w-100">
+                <a href="index.php?controller=auth&action=login">登录</a>
+                <a href="index.php?controller=register&action=index" class="active">注册</a>
+            </div>
+            <div class="login-main d-flex justify-content-center align-items-center">
+                <form method="post" id="registerForm" class="w-75 mt-5 mb-5" style="font-size:0.8rem;">
+                    <label id="work-error" class="error" {% if err_message=='' %}{{ 'hidden="hidden"'}}{% endif %}>{% if err_message!='' %}{{err_message}}{% endif %}</label>
+                    <div class="form-group">
+                        <label>用户名</label>
+                        <input id="usernameInput" type="text" name="username" class="form-control">
+                        <label id="usernameError" class="error" style="display:none;"></label>
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <input id="password" type="password" name="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>确认密码</label>
+                        <input type="password" name="passwordAgain" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>真实姓名</label>
+                        <input type="text" name="realname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>邮箱</label>
+                        <input id="emailInput" type="email" name="mail" class="form-control">
+                        <label id="emailError" class="error" style="display:none;"></label>
+                    </div>
+                    <div class="form-group">
+                        <label>年龄</label>
+                        <input type="text" name="age" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>职业</label></br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="inlineRadio1" type="radio" name="work" value="0" checked>
+                            <label class="form-check-label" for="inlineRadio1">学生</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="inlineRadio2" type="radio" name="work" value="1">
+                            <label class="form-check-label" for="inlineRadio2">上班族</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="orgName">学校</label>
+                        <input type="text" id="orgNameInput" name="schoolName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>兴趣爱好</label></br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="gamecheckbox" type="checkbox" name="hobby[]" value="game">
+                            <label class="form-check-label" for="gamecheckbox">游戏</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="footballcheckbox" type="checkbox" name="hobby[]" value="football">
+                            <label class="form-check-label" for="footballcheckbox">足球</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="basketballcheckbox" type="checkbox" name="hobby[]" value="basketball">
+                            <label class="form-check-label" for="basketballcheckbox">篮球</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="singcheckbox" type="checkbox" name="hobby[]" value="sing">
+                            <label class="form-check-label" for="singcheckbox">唱歌</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="dancecheckbox" type="checkbox" name="hobby[]" value="dance">
+                            <label class="form-check-label" for="dancecheckbox">舞蹈</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="musiccheckbox" type="checkbox" name="hobby[]" value="music">
+                            <label class="form-check-label" for="musiccheckbox">听音乐</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="novelcheckbox" type="checkbox" name="hobby[]" value="novel">
+                            <label class="form-check-label" for="novelcheckbox">看小说</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="moviecheckbox" type="checkbox" name="hobby[]" value="movie">
+                            <label class="form-check-label" for="moviecheckbox">看电影</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="bodybuiltcheckbox" type="checkbox" name="hobby[]" value="bodybuilt">
+                            <label class="form-check-label" for="bodybuiltcheckbox">撸铁</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="runcheckbox" type="checkbox" name="hobby[]" value="run">
+                            <label class="form-check-label" for="runcheckbox">跑步</label>
+                        </div>
+                        </br>
+                        <label id="work-error" class="error" for="hobby[]"></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3 w-100">注册</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="static/js/jquery-1.11.3.min.js"></script>
+<script src="static/js/jquery.validate.js"></script>
+<script src="static/js/register.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base/page-base.html.twig" %}
+{% block pageTitle %}不好！出现错误了！{% endblock %}
+{% block pageHeader %}
+<div class="col-6">
+    <a href="" class="navbar-brand">bootcamp</a>
+</div>
+{% endblock %}
+{% block pageBody %}
+<div class="container-fluid content">
+    <div class="row justify-content-center align-items-center no-gutters">
+        <div class="col">
+            <div class="row justify-content-center align-items-center mt-5">
+                <img style="width:128px;height:128px;" src="static/img/error.png" alt="error">
+            </div>
+            <div class="row justify-content-center align-items-center mt-5">
+                <p>错误信息：{{errorMessage}}</p>
+            </div>
+            <div class="row justify-content-center align-items-center mt-2">
+                <p>错误文件：{{errorFile}}</p>
+            </div>
+            <div class="row justify-content-center align-items-center mt-2">
+                <p>错误行数：{{errorLine}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+{% endblock %}

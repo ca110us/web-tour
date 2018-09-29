@@ -1,0 +1,91 @@
+{% extends "base/modal-base.html.twig" %}
+{% block modalName %}
+<div class="modal fade" id="UserDetailModal" tabindex="-1" role="dialog" aria-labelledby="UserDetailModalLabel" aria-hidden="true">
+{% endblock %}    
+{% block modalTitle %}
+<h5 class="modal-title" id="exampleModalLabel">用户详情</h5>
+{% endblock %}
+{% block modalForm %}
+<div class="modal-body">
+    <div class="row">
+        <div class="col-3">
+            <label class="ml-3 float-right">用户名</label>
+        </div>
+        <div class="col-9">
+            <label class="ml-3 float-left">{{modalUserInfo['username']}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label class="ml-3 float-right">角 色</label>
+        </div>
+        <div class="col-9">
+            <label class="ml-3 float-left">{{modalUserInfo['role']}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label class="ml-3 float-right">真实姓名</label>
+        </div>
+        <div class="col-9">
+            <label class="ml-3 float-left">{{modalUserInfo['realname']}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label class="ml-3 float-right">邮箱</label>
+        </div>
+        <div class="col-9">
+            <label class="ml-3 float-left">{{modalUserInfo['mail']}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label class="ml-3 float-right">年龄</label>
+        </div>
+        <div class="col-9">
+            <label class="ml-3 float-left">{{modalUserInfo['age']}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label class="ml-3 float-right">职业</label>
+        </div>
+        <div class="col-9">
+            <label class="ml-3 float-left">{{ modalUserInfo['work']==0 ? '学生' : '上班族' }}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label class="ml-3 float-right">学校/公司</label>
+        </div>
+        <div class="col-9">
+            <label class="ml-3 float-left">{{modalUserInfo['org']}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <label class="ml-3 float-right">兴趣爱好</label>
+        </div>
+        <div class="col-9">
+            <label class="ml-3 float-left">{{ modalUserInfo['hobby']|replace({
+                    '#':'/',
+                    'game':'游戏',
+                    'football':'足球',
+                    'basketball':'篮球',
+                    'sing':'唱歌',
+                    'dance':'舞蹈',
+                    'music':'听音乐',
+                    'novel':'看小说',
+                    'movie':'看电影',
+                    'bodybuilt':'撸铁',
+                    'run':'跑步'
+            }) }}</label>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary" data-dismiss="modal">确定</button>
+</div>
+</form>
+{% endblock %}

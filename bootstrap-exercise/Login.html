@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/sytle.css">
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row align-items-center header">
+          <div class="col-6">
+            <a href="" class="navbar-brand">bootcamp</a>
+          </div>
+          <div class="col-6">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                        <a class="nav-link" href="Register.html">注册</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="Login.html">登录</a>
+                </li>
+              </ul>
+          </div>
+        </div>
+    </div>
+
+    <div class="container-fluid content">
+        <div class="row justify-content-center align-items-center no-gutters">
+            <div class="login-area col-4">
+                <div class="login-tab w-100">
+                    <a href="Login.html" class="active">登录</a>
+                    <a href="Register.html">注册</a>
+                </div>
+                <div class="login-main d-flex justify-content-center align-items-center">
+                    <form id="loginForm" class="w-75 mt-5 mb-5" style="font-size:0.8rem;">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input type="text" name="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="rememberPassword" value="bodybuilt">
+                                <label class="form-check-label" >记住密码</label>
+                        </div>
+                        <button type="submit" class="btn btn-success mt-3 w-100">登录</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#loginForm").validate({
+                rules:{
+                    username:{
+                       required : true, // 必填
+                    },
+                    password:{
+                       required : true, // 必填
+                    }
+                 },
+                 messages:{
+                     username:{
+                      required:"用户名不能为空"
+                     },
+                     password:{
+                      required:"密码不能为空" // 必填
+                     }
+                }
+             });
+        });
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

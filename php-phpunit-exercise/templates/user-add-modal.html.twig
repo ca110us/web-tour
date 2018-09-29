@@ -1,0 +1,78 @@
+{% extends "base/modal-base.html.twig" %}
+{% import "base/form-hobby-checkbox-base.html.twig" as hobbyCheckbox %}
+{% block modalName %}
+<div class="modal fade" id="AddUserModal" tabindex="-1" role="dialog" aria-labelledby="AddUserModalLabel" aria-hidden="true">
+{% endblock %}
+{% block modalTitle %}
+<h5 class="modal-title" id="exampleModalLabel">添加新用户</h5>
+{% endblock %}
+{% block modalForm %}
+<div class="modal-body">
+    <div class="d-flex justify-content-center align-items-center">
+        <form id="addUserForm" class="w-75" style="font-size:0.8rem;">
+            <label id="err-message" class="error" style="display: none;"></label>
+            <div class="form-group">
+                <label>用户名</label>
+                <input id="usernameInput" type="text" name="username" class="form-control">
+                <label id="usernameError" class="error" style="display:none;"></label>
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input id="password" type="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>确认密码</label>
+                <input type="password" name="passwordAgain" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>真实姓名</label>
+                <input type="text" name="realname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>邮箱</label>
+                <input id="emailInput" type="email" name="mail" class="form-control">
+                <label id="emailError" class="error" style="display:none;"></label>
+            </div>
+            <div class="form-group">
+                <label>年龄</label>
+                <input type="text" name="age" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>职业</label></br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="inlineRadio1" type="radio" name="work" value="0" checked>
+                    <label class="form-check-label" for="inlineRadio1">学生</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="inlineRadio2" type="radio" name="work" value="1">
+                    <label class="form-check-label" for="inlineRadio2">上班族</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label id="orgName">学校</label>
+                <input type="text" id="orgNameInput" name="schoolName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>兴趣爱好</label></br>
+                    {{ hobbyCheckbox.hobbyCheckbox('gamecheckbox','game','游戏') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('footballcheckbox','football','足球') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('basketballcheckbox','basketball','篮球') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('singcheckbox','sing','唱歌') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('dancecheckbox','dance','舞蹈') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('musiccheckbox','music','听音乐') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('novelcheckbox','novel','看小说') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('moviecheckbox','movie','看电影') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('bodybuiltcheckbox','bodybuilt','撸铁') }}
+                    {{ hobbyCheckbox.hobbyCheckbox('runcheckbox','run','跑步') }}
+                </br>
+                <label id="work-error" class="error" for="hobby[]"></label>
+            </div>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+    <button type="submit" class="btn btn-primary">添加</button>
+</div>
+</form>
+{% endblock %}

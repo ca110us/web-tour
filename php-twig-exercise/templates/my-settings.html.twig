@@ -1,0 +1,147 @@
+{% extends "base/page-base.html.twig" %}
+{% block pageTitle %}我的设置{% endblock %}
+{% block pageHeader %}
+<div class="col-8">
+    <a href="" class="navbar-brand">bootcamp</a>
+    <div class="btn-group mb-1 ml-3" role="group" aria-label="Basic example">
+        <a class="btn btn-primary {% if active=='usersPage' %}{{'active'}}{% endif %}" href="index.php?controller=user&action=index" role="button">用户</a>
+        <a class="btn btn-primary" href="#" role="button">讨论区</a>
+        <a id="settings-btn" class="btn btn-primary {% if active=='settingsPage' %}{{'active'}}{% endif %}" href="index.php?controller=my&action=settings" role="button">我的设置</a>
+    </div>
+</div>
+<div class="col-4">
+    <ul class="nav justify-content-end">
+        <span class="navbar-text">
+        {{currentUser}}
+    </span>
+        <a class="nav-link pr-0" href="index.php?controller=auth&action=logout">退出</a>
+    </ul>
+</div>
+{% endblock %}
+{% block pageSession %}
+<p id="session" hidden="hidden" data-currentUser="{{currentUser}}" data-currentRole="{{currentRole}}" data-currentUserId="{{currentUserId}}"></p>
+{% endblock %}
+{% block pageBody %}
+<div class="container-fluid mb-4">
+    <div class="alert alert-dismissible alert-success fade show mt-4" hidden="hidden" style="margin:0;" role="alert">
+        <strong id="message">用户添加成功</strong>
+        <button type="button" class="close" style="line-height:1rem;" onclick="$('.alert').hide();" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+    <div class="row">
+        <div class="col w-100 mt-4">
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            我的设置
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <form id="editUserForm" class="w-75" style="font-size:0.8rem;">
+                                            <div class="form-group">
+                                                <label>用户名</label>
+                                                <input type="text" name="username" class="form-control" disabled="disabled" value="{{userInfo['username']}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>真实姓名</label>
+                                                <input type="text" name="realname" class="form-control" value="{{userInfo['realname']}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>邮箱</label>
+                                                <input id="mailInput" type="email" name="mail" class="form-control" value="{{userInfo['mail']}}">
+                                                <label id="mailError" class="error" style="display:none;"></label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>年龄</label>
+                                                <input type="text" name="age" class="form-control" value="{{userInfo['age']}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>职业</label></br>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="inline1" type="radio" name="work2" value="0" {{ userInfo[ 'work']==0 ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="inline1">学生</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="inline2" type="radio" name="work2" value="1" {{ userInfo[ 'work']==1 ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="inline2">上班族</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label id="orgName2">{{ userInfo[ 'work']==0 ? '学校' : '公司' }}</label>
+                                                <input type="text" id="orgNameInput2" name="{{ userInfo[ 'work']==0 ? 'schoolName' : 'companyName' }}" class="form-control" value="{{userInfo['org']}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>兴趣爱好</label></br>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="gamecheckbox" type="checkbox" name="hobby[]" value="game" {% if 'game' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="gamecheckbox">游戏</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="footballcheckbox" type="checkbox" name="hobby[]" value="football" {% if 'football' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="footballcheckbox">足球</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="basketballcheckbox" type="checkbox" name="hobby[]" value="basketball" {% if 'basketball' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="basketballcheckbox">篮球</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="singcheckbox" type="checkbox" name="hobby[]" value="sing" {% if 'sing' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="singcheckbox">唱歌</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="dancecheckbox" type="checkbox" name="hobby[]" value="dance" {% if 'dance' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="dancecheckbox">舞蹈</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="musiccheckbox" type="checkbox" name="hobby[]" value="music" {% if 'music' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="musiccheckbox">听音乐</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="novelcheckbox" type="checkbox" name="hobby[]" value="novel" {% if 'novel' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="novelcheckbox">看小说</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="moviecheckbox" type="checkbox" name="hobby[]" value="movie" {% if 'movie' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="moviecheckbox">看电影</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="bodybuiltcheckbox" type="checkbox" name="hobby[]" value="bodybuilt" {% if 'bodybuilt' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="bodybuiltcheckbox">撸铁</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" id="runcheckbox" type="checkbox" name="hobby[]" value="run" {% if 'run' in userInfo[ 'hobby'] %}{{ 'checked'}}{% endif %}>
+                                                    <label class="form-check-label" for="runcheckbox">跑步</label>
+                                                </div>
+                                                </br>
+                                                <label id="work-error" class="error" for="hobby[]"></label></br>
+                                                <button id="save-setting-btn" data-userid="{{userInfo['id']}}" type="submit" class="btn btn-primary mt-2 w-25">保存</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="static/js/jquery-1.11.3.min.js"></script>
+<script src="static/js/popper.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.validate.js"></script>
+<script src="static/js/edit-user.js"></script>
+<script src="static/js/register.js"></script>
+{% endblock %}

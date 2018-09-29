@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 10px;
+    min-width: 600px;
+}
+
+.header {
+    height: 70px;
+    background-color: #0679fc;
+    font-size: 1rem;
+    color: #F0F0F0;
+}
+
+.header a {
+    color: #fff;
+}
+
+.header a:focus {
+    color: #fff;
+}
+
+.header a:hover {
+    color: #fff;
+}
+
+.header a:link {
+    color: #fff;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-gutters>.col {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.no-gutters>[class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.search-text {
+    width: 200px;
+}
+
+label[class="error"] {
+    color: red;
+    margin-top: 0.5rem;
+}

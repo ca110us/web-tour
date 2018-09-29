@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 10px;
+  min-width:400px;
+}
+.header {
+  height: 70px;
+  background-color: #46c37b;
+  font-size: 1rem;
+}
+.header a {
+  color: #fff;
+}
+.header a:focus {
+  color: #fff;
+}
+.header a:hover {
+  color: #fff;
+}
+.header a:link {
+  color: #fff;
+}
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.no-gutters > .col {
+  padding-right: 0;
+  padding-left: 0;
+}
+.no-gutters > [class*="col-"]{
+  padding-right: 0;
+  padding-left: 0;
+}
+.login-area {
+  width: 460px;
+  height: auto;
+  background-color:#fff;
+  margin-top: 80px;
+  border:1px solid #F0F0F0;
+}
+.login-tab{
+  height: 50px;
+  background-color: #fafafa;
+}
+.login-tab a{
+  display: block;
+  font-size: 15px;
+  float: left;
+  text-decoration: none;
+  width: 50%;
+  text-align: center;
+  line-height: 50px;
+}
+.login-tab a{
+  color: #000;
+}
+.elogin-tab a:focus{
+  color: #000;
+}
+.login-tab a:hover{
+  color: #000;
+}
+.login-tab a:link{
+  color: #000;
+}
+.login-tab>a.active{
+  background-color: #fff;
+}
+label[class="error"]{
+  color: red;
+  margin-top: 0.5rem;
+}
